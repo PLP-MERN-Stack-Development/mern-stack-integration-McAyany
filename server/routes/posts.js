@@ -1,6 +1,9 @@
 const express = require('express');
 const post = require('../models/Post');
 const router = express.Router();
+import { validatePost } from "../middleware/validateMiddleware.js";
+
+router.route("/").post(validatePost, createPost);
 
 // Create a new post
 router.post('/', async (req, res) => {

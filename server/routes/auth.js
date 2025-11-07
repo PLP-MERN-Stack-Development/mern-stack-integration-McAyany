@@ -11,7 +11,7 @@ router.post('/register', async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Error registering user', error });
   }
-});
+}   );
 
 // Login user
 router.post('/login', async (req, res) => {
@@ -27,5 +27,4 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Error logging in', error });
   }
 });
-
 module.exports = router;
