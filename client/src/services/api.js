@@ -39,7 +39,7 @@ api.interceptors.response.use(
 );
 
 // Post API services
-export const postService = {
+export const postsApi = {
   // Get all posts with optional pagination and filters
   getAllPosts: async (page = 1, limit = 10, category = null) => {
     let url = `/posts?page=${page}&limit=${limit}`;
@@ -88,7 +88,7 @@ export const postService = {
 };
 
 // Category API services
-export const categoryService = {
+export const categoriesApi = {
   // Get all categories
   getAllCategories: async () => {
     const response = await api.get('/categories');
