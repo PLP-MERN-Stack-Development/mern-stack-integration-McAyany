@@ -1,15 +1,17 @@
-import { Link } from 'react-router-dom';
+import'../App.css';
 
-function Navbar() {
+const Navbar = () => {
   return (
-    <nav className="navbar">
-      <h2>MERN Blog</h2>
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/create">Create Post</Link>
+    <header className="bg-blue-600 text-white shadow">
+      <div className="container mx-auto flex items-center justify-between p-4">
+        <h1 className="text-xl font-bold">MERN Blog</h1>
+        <nav className="space-x-4">
+          <a href="/" className="hover:text-blue-200">Home</a>
+          <a href="/create" className="hover:text-blue-200">Create</a>
+        </nav>
       </div>
-    </nav>
+    </header>
   );
-}
+};
 
 export default Navbar;

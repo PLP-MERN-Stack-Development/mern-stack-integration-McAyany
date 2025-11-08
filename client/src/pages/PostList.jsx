@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import BlogLayout from "../components/BlogLayout";
 const PostsList = () => {
   const [posts, setPosts] = useState([]);       // always starts as []
   const [page, setPage] = useState(1);
@@ -49,7 +49,7 @@ const PostsList = () => {
 
   // 🩵 UI
   return (
-    <div>
+    <div style={{ padding: "1rem" }}>
       <h2>All Posts</h2>
 
       {/* 🔍 Search Bar */}
