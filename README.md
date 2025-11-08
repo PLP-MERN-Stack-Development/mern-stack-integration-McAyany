@@ -185,10 +185,10 @@ By completing this project, we have:
 ## 📸 Screenshots
 
 ### 🏠 Home Page
-![Home Page](./screenshots/.png)
+![Home Page](../screenshots/home.png)
 
 ### ✍️ Create Post Page
-![Create Post Page](./screenshots/createpost.png)
+![Create Post Page](../screenshots/createpost.png)
 
 ---
 
