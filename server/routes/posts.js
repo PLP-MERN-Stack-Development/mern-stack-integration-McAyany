@@ -1,10 +1,9 @@
 const express = require("express");
 const Post = require("../models/Post");
 const { validatePost } = require("../middleware/validateMiddleware");
-
 const router = express.Router();
 
-// 🟩 Create a new post
+// 🟩 Create new post
 router.post("/", validatePost, async (req, res) => {
   try {
     const newPost = new Post(req.body);
@@ -15,13 +14,27 @@ router.post("/", validatePost, async (req, res) => {
   }
 });
 
-// 🟨 Get all posts
-router.get("/", async (req, res) => {
+// 🟨 Get all / paginated posts
+router.get('/', async (req, res) => {
   try {
-    const posts = await Post.find().populate("category");
+    const { page, limit } = req.query;
+
+    if (page && limit) {
+      const posts = await Post.find()
+        .skip((page - 1) * limit)
+        .limit(Number(limit))
+        .populate('category');
+      const count = await Post.countDocuments();
+      return res.json({
+        posts,
+        totalPages: Math.ceil(count / limit),
+      });
+    }
+
+    const posts = await Post.find().populate('category');
     res.json(posts);
   } catch (err) {
-    res.status(500).json({ message: "Error fetching posts", error: err.message });
+    res.status(500).json({ message: 'Error fetching posts', error: err.message });
   }
 });
 
